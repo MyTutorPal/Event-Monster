@@ -41,3 +41,7 @@ Run the project via
 npm start
 ```
 Now, find :beetle: and create issues so we can help you :grin:.
+
+## TO DO
+
+Visit our [project board](https://github.com/MyTutorPal/Event-Monster/projects/1) to get the latest details about the Kiyamuda portal
