@@ -1,44 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+<img src="https://github.com/95Revolution/Kiyamuda-pwa/blob/master/public/src/images/icons/app-icon-96x96.png" alt="event-monstor">
+</p>
+<h2 align="center">Event Monstor</h2>
 
-## Available Scripts
+<p align="center">
+<a href="https://github.com/95Revolution/Kiyamuda-rn/blob/master/LICENSE"><img src="https://img.shields.io/github/license/95Revolution/Kiyamuda-rn.svg" alt="License"></a>
+<a href="https://discord.gg/p9gHBZj"><img src="https://img.shields.io/badge/chat-on%20discord-7289da.svg" alt="Discord"></a>
+<a href="https://join.slack.com/t/95revolution/shared_invite/enQtNDI0NDAxODg3NzgzLTdkMTZmMDM3N2E3MThlZTQwY2EzMjAzMWZjOTYwZGY2MjcyMzE4YmFiMzkzOTk1Yjg4MjI4ZWM1ZTc0NDI1ZWY"><img src="https://img.shields.io/badge/chat-on%20slack-7289da.svg" alt="Slack"></a>
+</p>
 
-In the project directory, you can run:
+# About Event Monstor
 
-### `npm start`
+**Event Monstor** is a Event Planner for all the busy Campus Club Leaders and Members :blush:.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Event Monstor** is an *free and open source* initiative launched by `MyTutorPal` :blush: in order to spread goodwill :heart: for the Sri Lankan higer educational community.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+If you are a _huge nerd_ like us help us to help you by contributing to this awesome adventure.
 
-### `npm test`
+Show us you're capabilities :muscle: and the spread message about our journey!!!
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `npm run build`
+**Event Monstor** is fully powered with the worlds neweset **heartbreaker** `JS`. From backend to frontend all the bits are configured using the `MERN` stack.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Current Progress
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Right now we are in the baby steps :baby: of our development. Join with us take a part of this amazing adventure.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How to setup
 
-### `npm run eject`
+Clone the project using
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```sh
+git clone
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Run the project via
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```sh
+npm start
+```
+Now, find :beetle: and create issues so we can help you :grin:.
