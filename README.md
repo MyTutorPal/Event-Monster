@@ -4,9 +4,18 @@
 <h2 align="center">Event Monstor</h2>
 
 <p align="center">
-<a href="https://github.com/95Revolution/Kiyamuda-rn/blob/master/LICENSE"><img src="https://img.shields.io/github/license/95Revolution/Kiyamuda-rn.svg" alt="License"></a>
+<a href="https://github.com/MyTutorPal/Event-Monster/blob/master/LICENSE"><img src="
+https://img.shields.io/github/license/MyTutorPal/Event-Monster.svg
+" alt="License"></a>
 <a href="https://discord.gg/p9gHBZj"><img src="https://img.shields.io/badge/chat-on%20discord-7289da.svg" alt="Discord"></a>
 <a href="https://join.slack.com/t/95revolution/shared_invite/enQtNDI0NDAxODg3NzgzLTdkMTZmMDM3N2E3MThlZTQwY2EzMjAzMWZjOTYwZGY2MjcyMzE4YmFiMzkzOTk1Yjg4MjI4ZWM1ZTc0NDI1ZWY"><img src="https://img.shields.io/badge/chat-on%20slack-7289da.svg" alt="Slack"></a>
+</p>
+
+<p align="center">
+<a href="https://travis-ci.com/MyTutorPal/Event-Monstor#"><img src="https://api.travis-ci.com/MyTutorPal/Event-Monstor.svg?branch=master" alt="Build"></a>
+<a href="https://github.com/MyTutorPal/Event-Monster/issues"><img src="
+https://img.shields.io/github/issues/MyTutorPal/Event-Monster.svg
+" alt="Bugs"></a>
 </p>
 
 # About Event Monstor
