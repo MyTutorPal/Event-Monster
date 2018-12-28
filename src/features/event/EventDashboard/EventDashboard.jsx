@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
-import { Grid } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Grid } from 'semantic-ui-react';
+import EventList from '../EventList/EventList'
 
 class EventDashboard extends Component {
     render() {
         return (
             <Grid>
                 <Grid.Column width={10}>
-                    <h2>Left Column</h2>
+                    <EventList />
                 </Grid.Column>
                 <Grid.Column width={6}>
                     <h2>Right Column</h2>
