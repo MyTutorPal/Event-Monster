@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-<a href="https://travis-ci.com/MyTutorPal/Event-Monstor#"><img src="https://api.travis-ci.com/MyTutorPal/Event-Monstor.svg?branch=master" alt="Build"></a>
+<a href="https://travis-ci.com/MyTutorPal/Event-Monster.svg?branch=master"><img src="https://travis-ci.com/MyTutorPal/Event-Monster.svg?branch=master" alt="Build"></a>
 <a href="https://github.com/MyTutorPal/Event-Monster/issues"><img src="https://img.shields.io/github/issues/MyTutorPal/Event-Monster.svg" alt="Bugs"></a>
 </p>
 
