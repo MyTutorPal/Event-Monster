@@ -53,4 +53,5 @@ Now, find :beetle: and create issues so we can help you :grin:.
 Visit our [project board](https://github.com/MyTutorPal/Event-Monster/projects/1) to get the latest details about the Kiyamuda portal
 
 ## License
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b85833ca72b047b18fe142d0c21d6ad2)](https://app.codacy.com/app/DevDHera/Event-Monster?utm_source=github.com&utm_medium=referral&utm_content=MyTutorPal/Event-Monster&utm_campaign=Badge_Grade_Dashboard)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMyTutorPal%2FEvent-Monster.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FMyTutorPal%2FEvent-Monster?ref=badge_large)
