@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/95Revolution/Kiyamuda-pwa/blob/master/public/src/images/icons/app-icon-96x96.png" alt="event-monstor">
+<img src="https://github.com/MyTutorPal/Event-Monster/blob/master/public/assets/logo-readme.png" alt="event-monstor">
 </p>
 <h2 align="center">Event Monstor</h2>
 
