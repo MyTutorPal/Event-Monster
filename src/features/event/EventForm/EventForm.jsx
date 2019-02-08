@@ -21,6 +21,14 @@ class EventForm extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.selectedEvent !== this.props.selectedEvent) {
+            this.setState({
+                event: nextProps.selectedEvent || emptyEvent
+            })
+        }
+    }
+
     onFormSubmit = (evt) => {
         evt.preventDefault();
         this.props.createEvent(this.state.event);
