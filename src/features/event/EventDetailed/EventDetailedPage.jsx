@@ -8,6 +8,7 @@ import EventDetailedInfo from './EventDetailedInfo';
 import EventDetailedChat from './EventDetailedChat';
 import EventDetailedSidebar from './EventDetailedSidebar';
 import { objectToArray } from '../../../app/common/util/helpers';
+import { goingToEvent } from '../../user/userActions';
 
 const mapState = state => {
   let event = {};
@@ -20,6 +21,10 @@ const mapState = state => {
     event,
     auth: state.firebase.auth
   };
+};
+
+const actions = {
+  goingToEvent
 };
 
 class EventDetailedPage extends Component {
@@ -42,7 +47,7 @@ class EventDetailedPage extends Component {
   }
 
   render() {
-    const { event, auth } = this.props;
+    const { event, auth, goingToEvent } = this.props;
     const attendees =
       event && event.attendees && objectToArray(event.attendees);
     const isHost = event.hostUid === auth.uid;
@@ -54,6 +59,7 @@ class EventDetailedPage extends Component {
             event={event}
             isHost={isHost}
             isGoing={isGoing}
+            goingToEvent={goingToEvent}
           />
           <EventDetailedInfo event={event} />
           <EventDetailedChat />
@@ -66,4 +72,9 @@ class EventDetailedPage extends Component {
   }
 }
 
-export default withFirestore(connect(mapState)(EventDetailedPage));
+export default withFirestore(
+  connect(
+    mapState,
+    actions
+  )(EventDetailedPage)
+);
