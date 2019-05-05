@@ -71,11 +71,11 @@ class EventForm extends Component {
   async componentDidMount() {
     const { firestore, match } = this.props;
     await firestore.setListener(`events/${match.params.id}`);
-    // if (event.exists) {
-    //   this.setState({
-    //     venueLatLng: event.data().venueLatLng
-    //   });
-    // }
+  }
+
+  async componentWillUnmount() {
+    const { firestore, match } = this.props;
+    await firestore.unsetListener(`events/${match.params.id}`);
   }
 
   handleScriptLoaded = () => this.setState({ scriptLoaded: true });
