@@ -1,5 +1,5 @@
 import { toastr } from 'react-redux-toastr';
-import { DELETE_EVENT, UPDATE_EVENT, FETCH_EVENTS } from './eventConstants';
+import { DELETE_EVENT, FETCH_EVENTS } from './eventConstants';
 import {
   asyncActionStart,
   asyncActionFinished,
@@ -7,6 +7,7 @@ import {
 } from '../async/asyncActions';
 import { fetchSampleDate } from '../../app/data/mockApi';
 import { createNewEvent } from '../../app/common/util/helpers';
+import moment from 'moment';
 
 export const fetchEvents = events => {
   return {
@@ -39,19 +40,37 @@ export const createEvent = event => {
 };
 
 export const updateEvent = event => {
-  return async dispatch => {
+  return async (dispatch, getState, { getFirestore }) => {
+    const firestore = getFirestore();
+    event.date = moment(event.date).toDate();
     try {
-      dispatch({
-        type: UPDATE_EVENT,
-        payload: {
-          event
-        }
-      });
+      await firestore.update(`events/${event.id}`, event);
       toastr.success('Success!', 'Event has been updated');
     } catch (error) {
       toastr.error('Oops', 'Something went wrong');
     }
   };
+};
+
+export const cancelToggle = (cancelled, eventId) => async (
+  dispatch,
+  getState,
+  { getFirestore }
+) => {
+  const firestore = getFirestore();
+  const message = cancelled
+    ? 'Are you sure you want to cancel the event?'
+    : 'This will reactivate the event - are you sure?';
+  try {
+    toastr.confirm(message, {
+      onOk: () =>
+        firestore.update(`events/${eventId}`, {
+          cancelled: cancelled
+        })
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const deleteEvent = eventId => {
