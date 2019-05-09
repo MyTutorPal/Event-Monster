@@ -1,8 +1,10 @@
 import React from 'react';
 import { Segment, Header, Comment } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import distanceInWords from 'date-fns/distance_in_words';
 import EventDetailedChatForm from './EventDetailedChatForm';
 
-const EventDetailedChat = ({ addEventComment, eventId }) => {
+const EventDetailedChat = ({ addEventComment, eventId, eventChat }) => {
   return (
     <div>
       <Segment
@@ -17,19 +19,24 @@ const EventDetailedChat = ({ addEventComment, eventId }) => {
 
       <Segment attached>
         <Comment.Group>
-          <Comment>
-            <Comment.Avatar src="/assets/user.png" />
-            <Comment.Content>
-              <Comment.Author as="a">Matt</Comment.Author>
-              <Comment.Metadata>
-                <div>Today at 5:42PM</div>
-              </Comment.Metadata>
-              <Comment.Text>How artistic!</Comment.Text>
-              <Comment.Actions>
-                <Comment.Action>Reply</Comment.Action>
-              </Comment.Actions>
-            </Comment.Content>
-          </Comment>
+          {eventChat &&
+            eventChat.map(comment => (
+              <Comment key={comment.id}>
+                <Comment.Avatar src={comment.photoURL || '/assets/user.png'} />
+                <Comment.Content>
+                  <Comment.Author as={Link} to={`/profile/${comment.uid}`}>
+                    {comment.displayName}
+                  </Comment.Author>
+                  <Comment.Metadata>
+                    <div>{distanceInWords(comment.date, Date.now())} ago</div>
+                  </Comment.Metadata>
+                  <Comment.Text>{comment.text}</Comment.Text>
+                  <Comment.Actions>
+                    <Comment.Action>Reply</Comment.Action>
+                  </Comment.Actions>
+                </Comment.Content>
+              </Comment>
+            ))}
         </Comment.Group>
         <EventDetailedChatForm
           addEventComment={addEventComment}

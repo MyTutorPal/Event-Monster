@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withFirestore, firebaseConnect } from 'react-redux-firebase';
+import { withFirestore, firebaseConnect, isEmpty } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Grid } from 'semantic-ui-react';
 // import { toastr } from 'react-redux-toastr';
@@ -12,7 +12,7 @@ import { objectToArray } from '../../../app/common/util/helpers';
 import { goingToEvent, cancelGoingToEvent } from '../../user/userActions';
 import { addEventComment } from '../eventActions';
 
-const mapState = state => {
+const mapState = (state, ownProps) => {
   let event = {};
 
   if (state.firestore.ordered.events && state.firestore.ordered.events[0]) {
@@ -21,7 +21,10 @@ const mapState = state => {
 
   return {
     event,
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    eventChat:
+      !isEmpty(state.firebase.data.event_chat) &&
+      objectToArray(state.firebase.data.event_chat[ownProps.match.params.id])
   };
 };
 
@@ -56,7 +59,8 @@ class EventDetailedPage extends Component {
       auth,
       goingToEvent,
       cancelGoingToEvent,
-      addEventComment
+      addEventComment,
+      eventChat
     } = this.props;
     const attendees =
       event && event.attendees && objectToArray(event.attendees);
@@ -76,6 +80,7 @@ class EventDetailedPage extends Component {
           <EventDetailedChat
             addEventComment={addEventComment}
             eventId={event.id}
+            eventChat={eventChat}
           />
         </Grid.Column>
         <Grid.Column width={6}>
