@@ -5,18 +5,27 @@ import distanceInWords from 'date-fns/distance_in_words';
 import EventDetailedChatForm from './EventDetailedChatForm';
 class EventDetailedChat extends Component {
   state = {
-    showReplyForm: false
+    showReplyForm: false,
+    selectedCommentId: null
   };
 
-  handleOpenReplyForm = () => {
+  handleOpenReplyForm = id => () => {
     this.setState({
-      showReplyForm: true
+      showReplyForm: true,
+      selectedCommentId: id
+    });
+  };
+
+  handleCloseReplyForm = () => {
+    this.setState({
+      selectedCommentId: null,
+      showReplyForm: false
     });
   };
 
   render() {
     const { addEventComment, eventId, eventChat } = this.props;
-    const { showReplyForm } = this.state;
+    const { showReplyForm, selectedCommentId } = this.state;
     return (
       <div>
         <Segment
@@ -46,13 +55,17 @@ class EventDetailedChat extends Component {
                     </Comment.Metadata>
                     <Comment.Text>{comment.text}</Comment.Text>
                     <Comment.Actions>
-                      <Comment.Action onClick={this.handleOpenReplyForm}>
+                      <Comment.Action
+                        onClick={this.handleOpenReplyForm(comment.id)}
+                      >
                         Reply
                       </Comment.Action>
-                      {showReplyForm && (
+                      {showReplyForm && selectedCommentId === comment.id && (
                         <EventDetailedChatForm
                           addEventComment={addEventComment}
                           eventId={eventId}
+                          form={`reply_${comment.id}`}
+                          closeForm={this.handleCloseReplyForm}
                         />
                       )}
                     </Comment.Actions>
@@ -63,6 +76,7 @@ class EventDetailedChat extends Component {
           <EventDetailedChatForm
             addEventComment={addEventComment}
             eventId={eventId}
+            form={'newComment'}
           />
         </Segment>
       </div>
