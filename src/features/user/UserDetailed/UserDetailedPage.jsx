@@ -10,6 +10,7 @@ import UserDetailedPhotos from './UserDetailedPhotos';
 import UserDetailedSidebar from './UserDetailedSidebar';
 import { userDetailedQuery } from '../userQueries';
 import LoadingComponent from '../../../app/layout/LoadingComponent';
+import { getUserEvents } from '../userActions';
 
 const mapState = (state, ownProps) => {
   let userUid = null;
@@ -33,7 +34,16 @@ const mapState = (state, ownProps) => {
   };
 };
 
+const actions = {
+  getUserEvents
+};
+
 class UserDetailedPage extends Component {
+  async componentDidMount() {
+    let events = this.props.getUserEvents(this.props.userUid);
+    console.log(events);
+  }
+
   render() {
     const { profile, photos, auth, match, requesting } = this.props;
     const isCurrentUser = auth.uid === match.params.id;
@@ -53,6 +63,9 @@ class UserDetailedPage extends Component {
 }
 
 export default compose(
-  connect(mapState),
+  connect(
+    mapState,
+    actions
+  ),
   firestoreConnect((auth, userUid) => userDetailedQuery(auth, userUid))
 )(UserDetailedPage);
