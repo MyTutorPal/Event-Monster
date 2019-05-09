@@ -1,7 +1,8 @@
 import React from 'react';
-import { Segment, Header, Comment, Form, Button } from 'semantic-ui-react';
+import { Segment, Header, Comment } from 'semantic-ui-react';
+import EventDetailedChatForm from './EventDetailedChatForm';
 
-const EventDetailedChat = () => {
+const EventDetailedChat = ({ addEventComment, eventId }) => {
   return (
     <div>
       <Segment
@@ -30,16 +31,10 @@ const EventDetailedChat = () => {
             </Comment.Content>
           </Comment>
         </Comment.Group>
-
-        <Form reply>
-          <Form.TextArea />
-          <Button
-            content="Add Reply"
-            labelPosition="left"
-            icon="edit"
-            primary
-          />
-        </Form>
+        <EventDetailedChatForm
+          addEventComment={addEventComment}
+          eventId={eventId}
+        />
       </Segment>
     </div>
   );
