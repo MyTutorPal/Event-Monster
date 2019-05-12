@@ -105,3 +105,21 @@ exports.userFollowing = functions.firestore
         .set(follower);
     });
   });
+
+exports.unfollowUser = functions.firestore
+  .document('users/{followerUid}/following/{followingUid}')
+  .onDelete((event, context) => {
+    return admin
+      .firestore()
+      .collection('users')
+      .doc(context.params.followingUid)
+      .collection('followers')
+      .doc(context.params.followerUid)
+      .delete()
+      .then(() => {
+        return console.log('doc deleted');
+      })
+      .catch(err => {
+        return console.log(err);
+      });
+  });
