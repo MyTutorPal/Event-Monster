@@ -219,3 +219,29 @@ export const getUserEvents = (userUid, activeTab) => async (
     dispatch(asyncActionError());
   }
 };
+
+export const followUser = userToFollow => async (
+  dispatch,
+  getState,
+  { getFirestore }
+) => {
+  const firestore = getFirestore();
+  const user = firestore.auth().currentUser;
+  const following = {
+    photoURL: userToFollow.photoURL || '/assets/user.png',
+    city: userToFollow.city || 'Unknown city',
+    displayName: userToFollow.displayName
+  };
+  try {
+    await firestore.set(
+      {
+        collection: 'users',
+        doc: user.uid,
+        subcollections: [{ collection: 'following', doc: userToFollow.id }]
+      },
+      following
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
