@@ -191,6 +191,7 @@ class PhotosPage extends Component {
                 <Image src={photo.url} />
                 <div className="ui two buttons">
                   <Button
+                    loading={loading}
                     onClick={this.handleSetMainPhoto(photo)}
                     basic
                     color="green"
