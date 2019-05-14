@@ -1,7 +1,7 @@
 import React from 'react';
 import { Segment, Image, Item, Header, Button } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 import format from 'date-fns/format';
+import { Link } from 'react-router-dom';
 
 const eventImageStyle = {
   filter: 'brightness(30%)'
@@ -22,7 +22,9 @@ const EventDetailedHeader = ({
   isHost,
   isGoing,
   goingToEvent,
-  cancelGoingToEvent
+  cancelGoingToEvent,
+  authenticated,
+  openModal
 }) => {
   return (
     <Segment.Group>
@@ -55,11 +57,13 @@ const EventDetailedHeader = ({
       <Segment attached="bottom">
         {!isHost && (
           <div>
-            {isGoing ? (
+            {isGoing && (
               <Button onClick={() => cancelGoingToEvent(event)}>
                 Cancel My Place
               </Button>
-            ) : (
+            )}
+
+            {!isGoing && authenticated && (
               <Button
                 loading={loading}
                 onClick={() => goingToEvent(event)}
@@ -68,9 +72,18 @@ const EventDetailedHeader = ({
                 JOIN THIS EVENT
               </Button>
             )}
+
+            {!authenticated && (
+              <Button
+                loading={loading}
+                onClick={() => openModal('UnauthModal')}
+                color="teal"
+              >
+                JOIN THIS EVENT
+              </Button>
+            )}
           </div>
         )}
-
         {isHost && (
           <Button as={Link} to={`/manage/${event.id}`} color="orange">
             Manage Event
