@@ -12,6 +12,7 @@ import HomePage from '../../features/home/HomePage';
 import TestComponent from '../../features/testarea/TestComponent';
 import ModalManager from '../../features/modals/ModalManager';
 import { UserIsAuthenticated } from '../../features/auth/authWrapper';
+import NotFound from './NotFound';
 
 class App extends Component {
   render() {
@@ -52,6 +53,8 @@ class App extends Component {
                     path="/createEvent"
                     component={UserIsAuthenticated(EventForm)}
                   />
+                  <Route path="/error" component={NotFound} />
+                  <Route component={NotFound} />
                 </Switch>
               </Container>
             </div>
